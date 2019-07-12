@@ -100,5 +100,7 @@ def telegram():
     return 'OK', 200  # 200 : 응답 상태 코드
 
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
