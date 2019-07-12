@@ -61,7 +61,7 @@ def telegram():
         # 사용자가 보낸 메시지를 text 변수에 저장, 사용자 정보는 chat_id에 저장
         text = response.get('message').get('text')
         chat_id = response.get('message').get('chat').get('id')
-        naver_url = 'https://openapi.naver.com/v1/papago/n2mt'
+        
 
         if '/번역 ' == text[0:4]:
             headers = {'X-Naver-Client-Id': naver_client_id,
