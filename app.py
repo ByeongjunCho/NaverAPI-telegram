@@ -42,11 +42,11 @@ def telegram():
                 'X-Naver-Client-Secret': naver_client_secret
                 }
         response = requests.post(naver_url, headers=headers, files={'image': image}).json()
+        if response.get('faces'):
+            best = response.get('faces')[0].get('celebrity')
         
-        best = response.get('faces')[0].get('celebrity')
-        
-        if best.get('confidence') > 0.2:
-            text = f"{best.get('confidence')*100}%만큼 {best.get('value')}를 닮으셨네요"
+            if best.get('confidence') > 0.2:
+                text = f"{best.get('confidence')*100}%만큼 {best.get('value')}를 닮으셨네요"
         else:
             text = "닮은 사람이 없어요"
         # print(text)
